@@ -10,6 +10,8 @@
 <body>
     <!--Container-->
     <div id="container">
+
+        <!--Header-->
         <header id="header">
                 <div id="div_logo">
                     <h1 class="logo_title">Logo</h1>
@@ -37,7 +39,74 @@
                     </div>
                 </div>
         </header>
+        <!--Header-->
 
+        <!--Profile form-->
+        <div id="profile_form_div">
+            <h1 class="profile_title">Profile</h1>
+            <form id="form">
+
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required/>
+
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" required/>
+
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password" required/>
+
+                <label for="conf_password">Confirm Password</label>
+                <input type="text" name="conf_password" id="conf_password" required/>
+
+                <div id="form_div_buttons">
+                    <input type="submit" value="Clear form" id="clear_form"/>
+                    <input type="submit" value="Next" id="next_step" />
+                </div>
+                
+            </form>
+        </div>
+
+        <footer id="footer">
+            <div id="about_us_div">
+                <h1>About us</h1>
+                <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis iusto quia voluptatibus voluptate mollitia, minima maiores vero magnam nulla est architecto sapiente incidunt, et quidem harum perspiciatis earum culpa ducimus.</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div id="faqs_div">
+                <h1>FAQs</h1>
+                <ul class="faqs_list">
+                    <li>FAQ 1</li>
+                    <li>FAQ 2</li>
+                    <li>FAQ 3</li>
+                    <li>FAQ 4</li>
+                </ul>    
+            </div>
+
+            <div class="divider"></div>
+
+            <div id="location_div">
+                <h1>Our shops</h1>
+                <ul class="shops_list">
+                    <li>Shop 1</li>
+                    <li>Shop 2</li>
+                    <li>Shop 3</li>
+                    <li>Shop 4</li>
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <div id="social_network_div">
+                <h1>Our social network</h1>
+                <div id="network_img_div">
+                    <img src="./src/assets/img/104498_facebook_icon.png">
+                    <img src="./src/assets/img/104501_twitter_bird_icon.png">
+                    <img src="./src/assets/img/1161953_instagram_icon.png">
+                </div>
+            </div>
+        </footer>
     </div>
 </body>
 </html>
