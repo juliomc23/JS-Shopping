@@ -1,0 +1,117 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#container{
+    width: 100%;
+    height: 100%;
+    background-color: #f2f2f2;
+}
+
+#header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    border-bottom: 1px solid #000;
+}
+
+#div_logo{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.2;
+}
+
+.logo_title{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+#div_list{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.7;
+}
+
+.list{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: 1;
+}
+
+#search_div{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.2;
+}
+
+.search_label{
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.3;
+    background-color: #dfdfdf;
+}
+
+.search_label input{
+    width: 75%;
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    outline: none;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.search_label img{
+    width: 24px;
+    height: 24px;
+}
+
+#cart_div{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.05;
+}
+
+.cart{
+    width: 40%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgb(218, 219, 218);
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.cart img{
+    width: 38px;
+    height: 38px;
+}
