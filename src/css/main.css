@@ -6,7 +6,6 @@
 
 #container{
     width: 100%;
-    min-height: 100vh;
     background-color: #f2f2f2;
 }
 
@@ -135,9 +134,43 @@
     height: 38px;
 }
 
+#div_progress_bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 30px;
+}
+
+.steps{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.steps span{
+    display: flex;
+    justify-content: center;
+}
+
+.items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.circle{
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
 #profile_form_div{
     width: 100%;
-    min-height: 100vh;
+    height: 75vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
