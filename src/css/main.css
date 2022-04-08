@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * {
     box-sizing: border-box;;
 }
@@ -90,3 +91,492 @@ form {
 
 
 
+=======
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#container{
+    width: 100%;
+    background-color: #f2f2f2;
+}
+
+#header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    border-bottom: 1px solid #000;
+    background-color: #e4e4e4;
+}
+
+#div_logo{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.2;
+}
+
+.logo_title{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+#div_list{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.5;
+}
+
+.list{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: 1;
+    list-style: none;
+}
+
+.list a{
+    display: block;
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+    transition: all 300ms;
+}
+
+.list a:hover{
+    transform: scale(1.1);
+}
+
+#search_div{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.2;
+}
+
+.search_label{
+    height: 40%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.3;
+    background-color: #eeeeee;
+    transition: all 300ms;
+}
+
+.search_label:hover{
+    cursor: pointer;
+    background-color: #c2c2c2;
+}
+
+.search_label input{
+    width: 75%;
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    outline: none;
+    padding: 10px;
+    font-size: 15px;
+}
+
+.search_label img{
+    width: 24px;
+    height: 24px;
+}
+
+#cart_div{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.05;
+}
+
+.cart{
+    width: 40%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.cart img{
+    width: 38px;
+    height: 38px;
+}
+
+#div_progress_bar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 30px;
+}
+
+.steps{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.steps span{
+    display: flex;
+    justify-content: center;
+}
+
+.items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.circle{
+    width: 20px;
+    height: 20px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+#div_clothes{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.clothes_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product_article {
+    margin-top: 20px;
+    border: 1px solid blue;
+}
+
+.product_article img{
+    width: 500px;
+    height: 500px;
+}
+
+#profile_form_div{
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.profile_title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#form{
+    width: 100%;
+    min-height: 375px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+#form input[type='text']{
+    width: 20%;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid #000;
+}
+
+#form label{
+    font-weight: bold;
+}
+
+#form_div_buttons{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 20%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+#form_div_buttons input{
+    width: 40%;
+    height: 30px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#form_div_buttons input:nth-child(2){
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+#footer{
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #e4e4e4;
+    padding-top: 20px;
+}
+
+#about_us_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    flex-grow: 1;
+}
+
+#about_us_div span{
+    width: 450px;
+}
+
+#faqs_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    flex-grow: 1;
+}
+
+.faqs_list,  .shops_list{
+    list-style: none;
+}
+
+#location_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    flex-grow: 1;
+}
+
+#social_network_div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    flex-grow: 1;
+}
+
+.divider{
+    height: 180px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+
+#network_img_div img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+
+/* Agustin CSS */
+.div_products {
+    display: grid;
+    width: 100%;
+}
+
+.mainProduct {
+    display: inline-flex;
+    width: 100%;
+}
+
+.mainProduct>img {
+    width: 100%;
+}
+
+.productDescr {
+    grid-area: 1 / 2 / 2 / 4;
+    font-family: 'Jost';
+    width: 86%;
+    padding-left:6em;
+}
+
+.inline{
+    list-style: none;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.colors{
+    width: 100%;
+    display: flex;
+}
+
+.productDescr h2 {
+    font-size: 2em;
+}
+
+.price {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.imgList {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.red{
+    background-color: red;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.green{
+    background-color: green;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.buy {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin-top: 10px;
+    font-size: 1.1em;
+
+    display: block;
+    border-radius: 1em;
+    padding: 0.7em 2em;
+    font-family: 'Jost';
+
+
+    transition: all 300ms;
+    margin-bottom: 10px;
+}
+
+.buy:hover {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.534);
+    transform: scale(1.2);
+}
+
+.sizes>a {
+    text-decoration: none;
+}
+
+.talla {
+    border: 1px solid black;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1em;
+    padding: 0.5em 4em;
+    display: inline-flex;
+    font-family: 'Jost';
+    background-color: #000000;
+    color: #fff;
+}
+
+.sizes {
+    margin-bottom: 20px;
+    font-family: 'Jost';
+}
+
+.talla:hover {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.534);
+}
+
+.shoeIcon {
+    width: 30px;
+    padding: 10px;
+}
+
+/*mainProduct*/
+.shoe1 {
+    grid-area: 2 / 1 / 3 / 3;
+    text-align: center;
+    padding: 6em 2em 0em;
+}
+
+.shoe>img {
+    width: 200px;
+}
+
+.shoe>p {
+    text-align: center;
+}
+
+img~a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    font-size: 1.3em;
+}
+
+.shoe2 {
+    grid-area: 2 / 2 / 3 /3;
+    text-align: center;
+    padding: 6em 2em 0em;
+}
+
+.shoe3 {
+    grid-area: 2 / 3 / 3 / 3;
+    text-align: center;
+    padding: 6em 2em 0em;
+
+}
+.shoe4 {
+    grid-area: 2 / 1 / 4 / 2;
+    text-align: center;
+    padding: 6em 18em 0em 0em;
+}
+>>>>>>> 2dfa3ea6a1ae0ecf950b9401efb0e6c28052f1cb
