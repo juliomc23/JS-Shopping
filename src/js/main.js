@@ -72,6 +72,8 @@ function muestraProductos(){
         <h1>${product.name}</h1>
         <span>${product.description}</span>
         <span>${product.price}</span>
+        <button>View product</button>
+        <button>Add to cart</button>
         `;
 
         clothes_container.appendChild(product_article);
