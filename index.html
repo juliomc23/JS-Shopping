@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link href="./src/css/main.css" type="text/css" rel="stylesheet">
     <script src="./src/js/main.js" defer></script>
     <title>JS-Shopping Wizard</title>
@@ -104,15 +103,10 @@
                 <p class="price">119,95€</p>
                 <p>Color: sapphire</p>
                 <div class="colors">
-                    <!-- <a href="#"><img class="imgList" src="img/ejemplo.jpg" alt=""></a>
-                    <a href="#"><img class="imgList" src="img/ejemplo.jpg" alt=""></a>
-                    <a href="#"><img class="imgList" src="img/ejemplo.jpg" alt=""></a>
-                    <a href="#"><img class="imgList" src="img/ejemplo.jpg" alt=""></a>
-                    <a href="#"><img class="imgList" src="img/ejemplo.jpg" alt=""></a> -->
-                        <div class="imgList red"></div>
-                        <div class="imgList blue"></div>
-                        <div class="imgList green"></div>
-                        <div class="imgList yellow"></div>
+                    <div class="imgList red"></div>
+                    <div class="imgList blue"></div>
+                    <div class="imgList green"></div>
+                    <div class="imgList yellow"></div>
                 </div>
                 <a href="#">Envíos y devoluciones gratis*</a>
                 <p>Selecciona una talla</p>
@@ -178,7 +172,7 @@
         <!--Profile form-->
         <div id="profile_form_div">
             <h1 class="profile_title">Profile</h1>
-            <form id="form">
+            <form class="form">
 
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" required />
@@ -201,54 +195,111 @@
         </div>
         <!--Profile form-->
 
-        <!--Footer-->
-        <footer id="footer">
-            <div id="about_us_div">
-                <h1>About us</h1>
-                <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis iusto quia voluptatibus voluptate
-                    mollitia, minima maiores vero magnam nulla est architecto sapiente incidunt, et quidem harum
-                    perspiciatis earum culpa ducimus.</span>
-            </div>
+        <!--Shipping adress-->
 
-            <div class="divider"></div>
-
-            <div id="faqs_div">
-                <h1>FAQs</h1>
-                <ul class="faqs_list">
-                    <li>FAQ 1</li>
-                    <li>FAQ 2</li>
-                    <li>FAQ 3</li>
-                    <li>FAQ 4</li>
-                </ul>
-            </div>
-
-            <div class="divider"></div>
-
-            <div id="location_div">
-                <h1>Our shops</h1>
-                <ul class="shops_list">
-                    <li>Shop 1</li>
-                    <li>Shop 2</li>
-                    <li>Shop 3</li>
-                    <li>Shop 4</li>
-                </ul>
-            </div>
-
-            <div class="divider"></div>
-
-            <div id="social_network_div">
-                <h1>Our social network</h1>
-                <div id="network_img_div">
-                    <img src="./src/assets/img/104498_facebook_icon.png">
-                    <img src="./src/assets/img/104501_twitter_bird_icon.png">
-                    <img src="./src/assets/img/1161953_instagram_icon.png">
+        <div id="shipping_form_div">
+            <h1 class="profile_title">Profile</h1>
+            <form class="form" action="">
+                <label for="" class="form_label">First Name</label>
+                <input maxlength="20" type="text" class="form_input" required>
+                
+                <label for="" class="form_label">Last Name</label>
+                <input maxlength="20" type="text" class="form_input" required>
+                
+                <label for="" class="form_label_fixed">Birthday</label>
+                <input type="date" class="form_input" required>
+                
+                <label for="" class="form_label">Address 1</label>
+                <input maxlength="50" type="text" class="form_input" required>
+                
+                <label for="" class="form_label">Address 2</label>
+                <input maxlength="50" type="text" class="form_input">
+                
+                <label for="" class="form_label">Postal Code</label>
+                <input maxlength="5" type="number" class="form_input" required>
+                
+                <label for="" class="form_label_fixed">Country</label>
+                <select id="country" class="form_input" required>
+                    <option value="select" selected style="font-style: italic;">Select a country</option>
+                    <option value="andorra">Andorra</option>
+                    <option value="españa">España</option>
+                    <option value="francia">Francia</option>
+                    <option value="alemania">Alemania</option>
+                    <option value="grecia">Grecia</option>
+                </select>
+                
+                <label for="" class="form_label_phone">Phone</label>
+                <div class="phone">
+                    <select name="countryCode" id="countryCode">
+                        <option value="and">Code</option>
+                        <option value="and">AND</option>
+                        <option value="esp">ESP</option>
+                        <option value="fra">FRA</option>
+                        <option value="deu">DEU</option>
+                        <option value="grc">GRC</option>
+                    </select>
                 </div>
-            </div>
-        </footer>
-        <!--Footer-->
+                <input type="tel" class="form_input" pattern="[0-9]{9}" required>
+                
+                <label for="">This is my regular address</label>
+                <input maxlength="" type="checkbox" class="checkbox">
+                
 
-    </div>
-    <!--Container-->
+                <input maxlength="" type="submit" class="form_submit">
+
+            </form>
+        <div></div>
+            <!--Shipping address-->
+
+            <!--Footer-->
+            <footer id="footer">
+                <div id="about_us_div">
+                    <h1>About us</h1>
+                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis iusto quia voluptatibus
+                        voluptate
+                        mollitia, minima maiores vero magnam nulla est architecto sapiente incidunt, et quidem harum
+                        perspiciatis earum culpa ducimus.</span>
+                </div>
+
+                <div class="divider"></div>
+
+                <div id="faqs_div">
+                    <h1>FAQs</h1>
+                    <ul class="faqs_list">
+                        <li>FAQ 1</li>
+                        <li>FAQ 2</li>
+                        <li>FAQ 3</li>
+                        <li>FAQ 4</li>
+                    </ul>
+                </div>
+
+                <div class="divider"></div>
+
+                <div id="location_div">
+                    <h1>Our shops</h1>
+                    <ul class="shops_list">
+                        <li>Shop 1</li>
+                        <li>Shop 2</li>
+                        <li>Shop 3</li>
+                        <li>Shop 4</li>
+                    </ul>
+                </div>
+
+                <div class="divider"></div>
+
+                <div id="social_network_div">
+                    <h1>Our social network</h1>
+                    <div id="network_img_div">
+                        <img src="./src/assets/img/104498_facebook_icon.png">
+                        <img src="./src/assets/img/104501_twitter_bird_icon.png">
+                        <img src="./src/assets/img/1161953_instagram_icon.png">
+                    </div>
+                </div>
+            </footer>
+            <!--Footer-->
+
+        </div>
+        <!--Container-->
 
 </body>
 
