@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/css/main.css">
+    <title></title>
+</head>
+<body>
+
+        <form action="">
+            <input maxlength="20" type="text" class="form_input" required>
+            <label for="" class="form_label">First Name</label>
+
+            <input maxlength="20" type="text" class="form_input" required>
+            <label for="" class="form_label">Last Name</label>
+
+            <input type="date" class="form_input" required>
+            <label for="" class="form_label_fixed">Birthday</label>
+
+            <input maxlength="50" type="text" class="form_input" required>
+            <label for="" class="form_label">Address 1</label>
+
+            <input maxlength="50" type="text" class="form_input">
+            <label for="" class="form_label">Address 2</label>
+
+            <input maxlength="5" type="number" class="form_input" required>
+            <label for="" class="form_label">Postal Code</label>
+
+            <select id="country" class="form_input" required>
+                <option value="select" selected style="font-style: italic;">Select a country</option>
+                <option value="andorra">Andorra</option>
+                <option value="españa">España</option>
+                <option value="francia">Francia</option>
+                <option value="alemania">Alemania</option>
+                <option value="grecia">Grecia</option>
+            </select>
+            <label for="" class="form_label_fixed">Country</label>
+
+            <div class="phone">
+                <select name="countryCode" id="countryCode">
+                    <option value="and">Code</option>
+                    <option value="and">AND</option>
+                    <option value="esp">ESP</option>
+                    <option value="fra">FRA</option>
+                    <option value="deu">DEU</option>
+                    <option value="grc">GRC</option>
+                </select>
+            </div>
+            <input type="tel" class="form_input" pattern="[0-9]{9}" required>
+            <label for="" class="form_label_phone">Phone</label>
+
+            <input maxlength="" type="checkbox" class="checkbox">
+            <label for="">This is my regular address</label>
+
+            <input maxlength="" type="submit" class="form_submit">
+
+        </form>
+
+        <script src="src/js/main.js"></script>
+
+</body>
+</html>
