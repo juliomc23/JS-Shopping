@@ -11,7 +11,3 @@ Array.from(input).forEach(input => {
     })
 
 })
-
-
-
-console.log(countryCode);
