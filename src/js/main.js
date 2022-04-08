@@ -69,13 +69,13 @@ const array_products = [
         stock: 10
     },
 ]
+//Mostrar array de productos
 
-
-function muestraProductos(){
+function muestraArrayProductos() {
 
     const clothes_container = document.querySelector('.clothes_container');
 
-    array_products.forEach( product =>{
+    array_products.forEach(product => {
 
         const product_article = document.createElement('article');
 
@@ -86,12 +86,48 @@ function muestraProductos(){
         <h1>${product.name}</h1>
         <span>${product.description}</span>
         <span>${product.price}</span>
-        <button>View product</button>
-        <button>Add to cart</button>
+        <button id="view_product" class="${product.id}">View product</button>
+        <button id="add_to_cart">Add to cart</button>
         `;
 
         clothes_container.appendChild(product_article);
     })
 }
 
-muestraProductos();
+muestraArrayProductos();
+
+//Mostrar array de productos
+
+//Clicks en botones viewProduct
+
+function viewProduct() {
+    const divClothes = document.querySelector('#div_clothes');
+    const divProducts = document.querySelector('.div_products');
+    const viewProduct = document.querySelectorAll('#view_product');
+
+    Array.from(viewProduct).forEach(viewProductButton => {
+        viewProductButton.addEventListener('click', () => {
+            divClothes.style.display = "none";
+            divProducts.style.display = "grid";
+
+            array_products.forEach( product =>{
+                if(viewProductButton.className == product.id){
+
+                    const productDescr = document.querySelector('.productDescr');
+                    const info = document.querySelector('.info');
+
+                    info.innerHTML = `
+                    <h2>${product.name}</h2>
+                    <p class="price">${product.price}€</p> 
+                    `
+
+                    productDescr.prepend(info);
+                }
+            })
+        })
+    })
+}
+
+viewProduct();
+
+//Clicks en botones viewProduct
