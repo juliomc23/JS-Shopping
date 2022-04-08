@@ -352,7 +352,11 @@
     padding-left: 20px;
     margin-bottom: 10px;
 }
+.inline p{
 
+    padding: 15px 0;
+
+}
 .colors{
     width: 100%;
     display: flex;
