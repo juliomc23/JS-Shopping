@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 let input = document.getElementsByClassName("form_input");
 
 Array.from(input).forEach(input => {
@@ -12,7 +12,6 @@ Array.from(input).forEach(input => {
     })
 
 })
-=======
 
 const array_products = [
     {
@@ -96,4 +95,3 @@ function muestraProductos(){
 }
 
 muestraProductos();
->>>>>>> 2dfa3ea6a1ae0ecf950b9401efb0e6c28052f1cb

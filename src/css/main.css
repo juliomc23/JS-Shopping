@@ -1,14 +1,5 @@
-<<<<<<< HEAD
-* {
-    box-sizing: border-box;;
-}
 
-body {
-    margin: 0;
-    font-family: sans-serif;
-}
-
-form {
+/* .form
     width: 500px;
     max-width: 100%;
     margin: auto;
@@ -84,14 +75,8 @@ form {
 
 .checkbox {
     margin-bottom: 40px;
-}
+} */
 
-
-
-
-
-
-=======
 *{
     margin: 0px;
     padding: 0px;
@@ -288,7 +273,7 @@ form {
     height: 500px;
 }
 
-#profile_form_div{
+#profile_form_div, #shipping_form_div{
     width: 100%;
     height: 75vh;
     display: flex;
@@ -308,7 +293,7 @@ form {
     margin-bottom: 20px;
 }
 
-#form{
+.form{
     width: 100%;
     min-height: 375px;
     display: flex;
@@ -318,14 +303,14 @@ form {
     align-content: center;
 }
 
-#form input[type='text']{
+.form input[type='text']{
     width: 20%;
     outline: none;
     border-radius: 3px;
     border: 1px solid #000;
 }
 
-#form label{
+.form label{
     font-weight: bold;
 }
 
@@ -579,4 +564,3 @@ img~a {
     text-align: center;
     padding: 6em 18em 0em 0em;
 }
->>>>>>> 2dfa3ea6a1ae0ecf950b9401efb0e6c28052f1cb
