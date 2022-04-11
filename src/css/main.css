@@ -542,7 +542,11 @@
     padding-left: 20px;
     margin-bottom: 10px;
 }
+.inline p{
 
+    padding: 15px 0;
+
+}
 .colors{
     width: 100%;
     display: flex;
@@ -671,4 +675,34 @@ img~a {
     grid-area: 2 / 1 / 4 / 2;
     text-align: center;
     padding: 6em 18em 0em 0em;
+}
+
+#shipping{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+#shipping_type{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.checkbox_gift{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#message_text{
+    display: none;
+    width: 20%;
+    height: 150px;
+    margin-bottom: 10px;
 }

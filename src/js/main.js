@@ -55,6 +55,25 @@ const array_products = [
     },
 ]
 let cart = [];
+
+
+function Gifts() {
+    // Get the checkbox
+    var checkBox = document.getElementById("gift");
+    
+    // Get the output text
+    var message_text = document.getElementById("message_text");
+  var tit = document.getElementById("tit");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      message_text.style.display = "block";
+      tit.style.display = "block";
+    } else {
+        message_text.style.display = "none";
+        tit.style.display = "none";
+    }
+}
+
 //Mostrar array de productos
 
 function muestraArrayProductos() {
@@ -561,3 +580,6 @@ function clearFormProfile() {
 }
 
 clearFormProfile();
+
+
+
