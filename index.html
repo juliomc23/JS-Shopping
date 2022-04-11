@@ -202,22 +202,22 @@
             <form class="form" action="">
                 <label for="" class="form_label">First Name</label>
                 <input maxlength="20" type="text" class="form_input" required>
-                
+
                 <label for="" class="form_label">Last Name</label>
                 <input maxlength="20" type="text" class="form_input" required>
-                
+
                 <label for="" class="form_label_fixed">Birthday</label>
                 <input type="date" class="form_input" required>
-                
+
                 <label for="" class="form_label">Address 1</label>
                 <input maxlength="50" type="text" class="form_input" required>
-                
+
                 <label for="" class="form_label">Address 2</label>
                 <input maxlength="50" type="text" class="form_input">
-                
+
                 <label for="" class="form_label">Postal Code</label>
                 <input maxlength="5" type="number" class="form_input" required>
-                
+
                 <label for="" class="form_label_fixed">Country</label>
                 <select id="country" class="form_input" required>
                     <option value="select" selected style="font-style: italic;">Select a country</option>
@@ -227,7 +227,7 @@
                     <option value="alemania">Alemania</option>
                     <option value="grecia">Grecia</option>
                 </select>
-                
+
                 <label for="" class="form_label_phone">Phone</label>
                 <div class="phone">
                     <select name="countryCode" id="countryCode">
@@ -240,16 +240,45 @@
                     </select>
                 </div>
                 <input type="tel" class="form_input" pattern="[0-9]{9}" required>
-                
+
                 <label for="">This is my regular address</label>
                 <input maxlength="" type="checkbox" class="checkbox">
-                
+
 
                 <input maxlength="" type="submit" class="form_submit">
 
             </form>
-        <div></div>
+            <div></div>
             <!--Shipping address-->
+
+            <div id="shipping">
+                <h1 class="shipping_title">Shipping</h1>
+                <h3>Shipping type</h3>
+
+                <div>
+                    <input type="radio" id="free" name="shipping" value="free">
+                    <label for="free">Free Shipment(72h)</label>
+                </div>
+                <div>
+                    <input type="radio" id="extra" name="shipping" value="extra">
+                    <label for="extra">Extra shipment (48H) <strong>4,99€</strong></label>
+                </div>
+                <div>
+                    <input type="radio" id="premium" name="shipping" value="premium">
+                    <label for="premium">Premium (24h) <strong>9,99€</strong></label>
+                </div>
+
+                <input type="checkbox" id="gift" onclick="myFunction()">
+
+                <p id="gift" style="display:block">It's a gift?</p>
+                <p id="tit" style="display: none;">Gift message</p>
+                <textarea id="text" name="subject" style="height:200px;display:none"></textarea>
+
+                <input type="file" id="gift-image" name="filename">
+            </div>
+            <div id="time">
+
+            </div>
 
             <!--Footer-->
             <footer id="footer">
