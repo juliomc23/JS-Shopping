@@ -54,7 +54,7 @@ const array_products = [
         stock: 10
     },
 ]
-let cart  = [];
+let cart = [];
 //Mostrar array de productos
 
 function muestraArrayProductos() {
@@ -92,7 +92,7 @@ function viewProduct() {
     const divClothes = document.querySelector('#div_clothes');
     const divProducts = document.querySelector('.div_products');
     const viewProduct = document.querySelectorAll('#view_product');
-    
+
 
 
     Array.from(viewProduct).forEach(viewProductButton => {
@@ -100,8 +100,8 @@ function viewProduct() {
             divClothes.style.display = "none";
             divProducts.style.display = "grid";
 
-            array_products.forEach( product =>{
-                if(viewProductButton.className == product.id){
+            array_products.forEach(product => {
+                if (viewProductButton.className == product.id) {
 
 
                     const productDescr = document.querySelector('.productDescr');
@@ -146,20 +146,20 @@ viewProduct();
 
 //Añadir al carrito
 
-function addToCart(){
-    
+function addToCart() {
+
     const addToCartButton = document.querySelectorAll('#add_to_cart');
-    
+
 
     Array.from(addToCartButton).forEach(addToCartButton => {
         addToCartButton.addEventListener('click', () => {
-            
+
             array_products.forEach(product => {
-                if(addToCartButton.className == product.id){
+                if (addToCartButton.className == product.id) {
                     cart.push({
-                        name: product.name, 
-                        img: product.image, 
-                        price: product.price, 
+                        name: product.name,
+                        img: product.image,
+                        price: product.price,
                         description: product.description
                     });
 
@@ -172,8 +172,8 @@ function addToCart(){
         })
     })
 
-    
-    
+
+
 }
 
 addToCart();
@@ -182,71 +182,71 @@ addToCart();
 
 //Mostrar el carrito
 
-function showCart(){
+function showCart() {
 
     const divCart = document.querySelector('.cart');
 
-    divCart.addEventListener('click', ()=>{
+    divCart.addEventListener('click', () => {
 
-        if(cart.length >= 1){
+        if (cart.length >= 1) {
             const productsCartDiv = document.querySelector('#products_cart_div');
             const shoppingCartDiv = document.querySelector('#shopping_cart_div');
 
             shoppingCartDiv.style.cssText = "border-top: 1px solid rgb(216, 216, 216); border-bottom: 1px solid rgb(216, 216, 216);";
 
-            if(productsCartDiv.hasChildNodes() === true){
+            if (productsCartDiv.hasChildNodes() === true) {
 
                 //Elimina los hijos del div para que no salgan duplicados
                 productsCartDiv.innerHTML = '';
 
                 //Luego los vuelve a pintar con los nuevos productos
                 cart.forEach(product => {
-                
+
                     const productDiv = document.createElement('article');
                     const divImgProduct = document.createElement('div');
                     const divProductsInfo = document.createElement('div');
-    
+
                     const divButtons = document.createElement('div');
                     const addProductButton = document.createElement('button');
                     const removeProductButton = document.createElement('button');
-    
+
                     addProductButton.innerHTML = '+';
                     removeProductButton.innerHTML = '-';
-    
+
                     divButtons.appendChild(addProductButton);
                     divButtons.appendChild(removeProductButton);
-    
+
                     productDiv.appendChild(divButtons);
-    
+
                     productDiv.classList.add('product_cart_article');
                     divImgProduct.classList.add('div_img_product');
                     divProductsInfo.classList.add('div_products_info');
                     divButtons.classList.add('div_buttons');
-    
+
                     divImgProduct.innerHTML = `<img src="${product.img}">`;
                     divProductsInfo.innerHTML = `
                     <h2>${product.name}</h2>
                     <p class="price">${product.price}€</p>
                     <p>${product.description}</p>
                     `
-    
+
                     productDiv.appendChild(divImgProduct);
                     productDiv.appendChild(divProductsInfo);
-    
-    
-    
+
+
+
                     productDiv.appendChild(divButtons);
-    
+
                     productsCartDiv.appendChild(productDiv);
-                    
-                    
+
+
                 })
             }
-            
-        }else{
+
+        } else {
             alert('No hay productos en el carrito');
         }
-        
+
         showTotalShop();
     })
 }
@@ -257,7 +257,7 @@ showCart();
 
 // Creamos la notificacion de los elementos que hay en el carrito
 
-function notification(){
+function notification() {
 
     const notificationDiv = document.querySelector('.notification');
 
@@ -267,7 +267,7 @@ function notification(){
 
     cartLenght.innerHTML += `${cart.length}`;
 
-    while(notificationDiv.firstChild){
+    while (notificationDiv.firstChild) {
         notificationDiv.removeChild(notificationDiv.firstChild);
     }
     notificationDiv.appendChild(cartLenght);
@@ -277,7 +277,7 @@ function notification(){
 
 //Mostrar total de la compra
 
-function showTotalShop(){
+function showTotalShop() {
 
     const totalShop = document.querySelector('#total_info');
 
@@ -290,30 +290,274 @@ function showTotalShop(){
     // el primero es el "total" y el segundo es el numero que va recorriendo
     // tambien tiene que recibir el 0 ese para que sume ese numero, si no le ponemos nada no suma nada
 
-    total.innerHTML = `${cart.reduce((acum, num_actual) =>{
+    total.innerHTML = `${cart.reduce((acum, num_actual) => {
         return acum + num_actual.price;
     }, 0)}€`;
-    
+
     //Eliminamos los hijos del div para que no salgan duplicados
-    while(totalShop.firstChild){
+    while (totalShop.firstChild) {
         totalShop.removeChild(totalShop.firstChild);
     }
 
     totalShop.appendChild(totalText);
     totalShop.appendChild(total);
-    
+
 }
 
 //Mostrar total de la compra
 
+//Mostrar formulario del perfil
 
-/**
- * restarura el array del carrito
- */
-function clearCart(){
-    carrito = []
-    console.log(carrito);
-   
+function userInfo() {
+
+    const profileImg = document.querySelector('.user');
+
+    profileImg.addEventListener('click', () => {
+
+        const divClothes = document.querySelector('#div_clothes');
+        const divProfileForm = document.querySelector('#profile_form_div');
+        const divProducts = document.querySelector('.div_products');
+
+        divClothes.style.cssText = 'display: none;';
+        divProfileForm.style.cssText = 'display: flex;';
+        divProducts.style.cssText = 'display: none;';
+
+    })
 }
 
+userInfo();
 
+//Mostrar formulario del perfil
+
+
+//Obtener datos del usuario
+
+let dataUserArray = [];
+let allOk = true;
+
+function getUserData() {
+
+    const sendValuesButton = document.querySelector('#next_step');
+
+    sendValuesButton.addEventListener('click', (event) => {
+
+        event.preventDefault();
+
+        const username = document.querySelector('#username');
+        const email = document.querySelector('#email');
+        const password = document.querySelector('#password');
+        const conf_password = document.querySelector('#conf_password');
+
+        const formProfile = document.querySelector('#profile_form_div');
+
+        const circleProfile = document.querySelector('.profile');
+
+        //Campos vacios
+        if (username.value === '' || email.value === '' || password.value === '' || conf_password.value === '') {
+
+
+            username.style.borderColor = 'red';
+            email.style.borderColor = 'red';
+            password.style.borderColor = 'red';
+            conf_password.style.borderColor = 'red';
+
+            const alertSpan = document.createElement('span');
+            alertSpan.innerHTML = '<p>Rellena todos los campos</p>';
+            alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+            formProfile.append(alertSpan);
+
+            setTimeout(() => {
+                formProfile.removeChild(alertSpan);
+                username.style.borderColor = 'black';
+                email.style.borderColor = 'black';
+                password.style.borderColor = 'black';
+                conf_password.style.borderColor = 'black';
+            }, 3000);
+
+            allOk = false;
+        } else {
+
+            //Contraseñas no coinciden
+            if (password.value !== conf_password.value) {
+
+                password.style.borderColor = 'red';
+                conf_password.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>Las contraseñas no coinciden</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formProfile.append(alertSpan);
+
+                setTimeout(() => {
+                    formProfile.removeChild(alertSpan);
+                    password.style.borderColor = 'black';
+                    conf_password.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            }else{
+                allOk = true;
+            }
+
+
+            //Longitud nombre de usuario
+
+            const nameWithOutSpaces = username.value.replace(/\s/g, '');
+            if (nameWithOutSpaces.length < 5 || nameWithOutSpaces.length > 20) {
+
+                username.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>El nombre de usuario debe tener entre 5 y 20 caracteres</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formProfile.append(alertSpan);
+
+                setTimeout(() => {
+                    formProfile.removeChild(alertSpan);
+                    username.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            }else{
+                allOk = true;
+            }
+
+            //Validacion email
+
+            const expresion = /^[a-z][\w.-]+@\w[\w.-]+\.[\w.-]*[a-z][a-z]$/i;
+            if (email.value.length > 50) {
+
+                email.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>El email no puede tener mas de 50 caracteres</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formProfile.append(alertSpan);
+
+                setTimeout(() => {
+                    formProfile.removeChild(alertSpan);
+                    email.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            } else if (!expresion.test(email.value)) {
+                email.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>El email no está bien</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formProfile.append(alertSpan);
+
+                setTimeout(() => {
+                    formProfile.removeChild(alertSpan);
+                    email.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            }else{
+                allOk = true;
+            }
+
+            //Comprobacion longitud contraseña
+            const regex = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
+            if (password.value.length < 8 || password.value.length > 20 && conf_password.value.length < 8 || conf_password.value.length > 20) {
+
+                password.style.borderColor = 'red';
+                conf_password.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>Las contraseñas debe tener entre 8 y 20 caracteres</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formProfile.append(alertSpan);
+
+                setTimeout(() => {
+                    formProfile.removeChild(alertSpan);
+                    password.style.borderColor = 'black';
+                    conf_password.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            }else if (!regex.test(password.value) || !regex.test(conf_password.value)) {
+
+                password.style.borderColor = 'red';
+                conf_password.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>La contraseña debe tener al menos una mayúscula</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formProfile.append(alertSpan);
+
+                setTimeout(() => {
+                    formProfile.removeChild(alertSpan);
+                    password.style.borderColor = 'black';
+                    conf_password.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            }else{
+                allOk = true;
+            }
+
+            
+        }
+
+        if(allOk === true){
+            dataUserArray.push({
+                username: username.value,
+                email: email.value,
+                password: password.value,
+                conf_password: conf_password.value
+            })
+
+            circleProfile.style.backgroundColor = 'black';
+            formProfile.style.display = 'none';
+            
+        }
+    }
+
+
+
+    );
+
+
+}
+
+getUserData();
+
+
+//Obtener datos del usuario
+
+
+//Limpiar formulario del perfil
+
+function clearFormProfile() {
+
+    const clearButton = document.querySelector('#clear_form');
+
+    clearButton.addEventListener('click', (event) => {
+
+        event.preventDefault();
+
+        const username = document.querySelector('#username');
+        const email = document.querySelector('#email');
+        const password = document.querySelector('#password');
+        const conf_password = document.querySelector('#conf_password');
+
+        username.value = '';
+        email.value = '';
+        password.value = '';
+        conf_password.value = '';
+
+        dataUserArray = [];
+
+    })
+}
+
+clearFormProfile();

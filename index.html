@@ -38,6 +38,12 @@
                 </label>
             </div>
 
+            <div id="profile_div">
+                <div class="user">
+                    <img src="./src/assets/img/290120_account_avatar_man_profile_user_icon.png"/>
+                </div>
+            </div>
+
             <div id="cart_div">
                 <div class="cart">
                     <img src="./src/assets/img/4544843_shop_business_delivery_trolley_comerce_icon.png">
@@ -55,26 +61,26 @@
             <div class="steps">
                 <span>Profile</span>
                 <div class="items">
-                    <div class="circle"></div>
+                    <div class="circle profile"></div>
                 </div>
 
             </div>
             <div class="steps">
                 <span>Address</span>
                 <div class="items">
-                    <div class="circle"></div>
+                    <div class="circle address"></div>
                 </div>
             </div>
             <div class="steps">
                 <span>Shipping</span>
                 <div class="items">
-                    <div class="circle"></div>
+                    <div class="circle shipping"></div>
                 </div>
             </div>
             <div class="steps">
                 <span>Finish</span>
                 <div class="items">
-                    <div class="circle"></div>
+                    <div class="circle finish"></div>
                 </div>
             </div>
         </div>
@@ -176,19 +182,19 @@
         <!--Profile form-->
         <div id="profile_form_div">
             <h1 class="profile_title">Profile</h1>
-            <form class="form">
+            <form class="form_profile">
 
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" required />
+                <label for="username">Username *</label>
+                <input type="text" name="username" id="username" required/>
 
-                <label for="email">Email</label>
+                <label for="email">Email *</label>
                 <input type="text" name="email" id="email" required />
 
-                <label for="password">Password</label>
-                <input type="text" name="password" id="password" required />
+                <label for="password">Password *</label>
+                <input type="password" name="password" id="password" required />
 
-                <label for="conf_password">Confirm Password</label>
-                <input type="text" name="conf_password" id="conf_password" required />
+                <label for="conf_password">Confirm Password *</label>
+                <input type="password" name="conf_password" id="conf_password" required />
 
                 <div id="form_div_buttons">
                     <input type="submit" value="Clear form" id="clear_form" />

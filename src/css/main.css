@@ -109,6 +109,30 @@
     height: 24px;
 }
 
+#profile_div{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-grow: 0.05;
+}
+
+.user{
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+}
+
+.user img{
+    height: 30px;
+    width: 30px;
+}
+
 #cart_div{
     height: 100%;
     display: flex;
@@ -268,9 +292,9 @@
     margin-bottom: 20px;
 }
 
-.form{
+.form_profile{
     width: 100%;
-    min-height: 375px;
+    height: 375px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -278,14 +302,14 @@
     align-content: center;
 }
 
-.form input[type='text']{
+.form_profile input[type='text'], input[type='password']{
     width: 20%;
     outline: none;
     border-radius: 3px;
     border: 1px solid #000;
 }
 
-.form label{
+.form_profile label{
     font-weight: bold;
 }
 
