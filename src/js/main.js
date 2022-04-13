@@ -54,20 +54,21 @@ const array_products = [
         stock: 10
     },
 ]
+
 let cart = [];
 
 
 function Gifts() {
     // Get the checkbox
     var checkBox = document.getElementById("gift");
-    
+
     // Get the output text
     var message_text = document.getElementById("message_text");
-  var tit = document.getElementById("tit");
+    var tit = document.getElementById("tit");
     // If the checkbox is checked, display the output text
-    if (checkBox.checked == true){
-      message_text.style.display = "block";
-      tit.style.display = "block";
+    if (checkBox.checked == true) {
+        message_text.style.display = "block";
+        tit.style.display = "block";
     } else {
         message_text.style.display = "none";
         tit.style.display = "none";
@@ -150,6 +151,7 @@ function viewProduct() {
                             price: product.price,
                             description: product.description
                         })
+                        product.stock--;
 
                         notification();
                     })
@@ -168,7 +170,6 @@ viewProduct();
 function addToCart() {
 
     const addToCartButton = document.querySelectorAll('#add_to_cart');
-
 
     Array.from(addToCartButton).forEach(addToCartButton => {
         addToCartButton.addEventListener('click', () => {
@@ -190,9 +191,6 @@ function addToCart() {
             notification();
         })
     })
-
-
-
 }
 
 addToCart();
@@ -301,7 +299,7 @@ function showTotalShop() {
     const totalShop = document.querySelector('#total_info');
 
     const totalText = document.createElement('p');
-    const total = document.createElement('p');
+    const totalPrice = document.createElement('p');
 
     totalText.innerHTML = 'Total: ';
 
@@ -309,7 +307,7 @@ function showTotalShop() {
     // el primero es el "total" y el segundo es el numero que va recorriendo
     // tambien tiene que recibir el 0 ese para que sume ese numero, si no le ponemos nada no suma nada
 
-    total.innerHTML = `${cart.reduce((acum, num_actual) => {
+    totalPrice.innerHTML = `${cart.reduce((acum, num_actual) => {
         return acum + num_actual.price;
     }, 0)}€`;
 
@@ -319,7 +317,7 @@ function showTotalShop() {
     }
 
     totalShop.appendChild(totalText);
-    totalShop.appendChild(total);
+    totalShop.appendChild(totalPrice);
 
 }
 
@@ -351,10 +349,10 @@ userInfo();
 
 //Obtener datos del usuario
 
-let dataUserArray = [];
-let allOk = true;
-
 function getUserData() {
+
+    let dataUserArray = [];
+    let allOk = true;
 
     const sendValuesButton = document.querySelector('#next_step');
 
@@ -368,6 +366,7 @@ function getUserData() {
         const conf_password = document.querySelector('#conf_password');
 
         const formProfile = document.querySelector('#profile_form_div');
+        const shippingFormDiv = document.querySelector('#shipping_form_div');
 
         const circleProfile = document.querySelector('.profile');
 
@@ -416,7 +415,7 @@ function getUserData() {
                 }, 3000);
 
                 allOk = false;
-            }else{
+            } else {
                 allOk = true;
             }
 
@@ -440,7 +439,7 @@ function getUserData() {
                 }, 3000);
 
                 allOk = false;
-            }else{
+            } else {
                 allOk = true;
             }
 
@@ -478,7 +477,7 @@ function getUserData() {
                 }, 3000);
 
                 allOk = false;
-            }else{
+            } else {
                 allOk = true;
             }
 
@@ -502,13 +501,13 @@ function getUserData() {
                 }, 3000);
 
                 allOk = false;
-            }else if (!regex.test(password.value) || !regex.test(conf_password.value)) {
+            } else if (!regex.test(password.value) || !regex.test(conf_password.value)) {
 
                 password.style.borderColor = 'red';
                 conf_password.style.borderColor = 'red';
 
                 const alertSpan = document.createElement('span');
-                alertSpan.innerHTML = '<p>La contraseña debe tener al menos una mayúscula</p>';
+                alertSpan.innerHTML = '<p>La contraseña debe tener al menos una mayúscula, un numero y un caracter especial</p>';
                 alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
 
                 formProfile.append(alertSpan);
@@ -520,28 +519,27 @@ function getUserData() {
                 }, 3000);
 
                 allOk = false;
-            }else{
+            } else {
                 allOk = true;
             }
 
-            
+
         }
 
-        if(allOk === true){
-            dataUserArray.push({
-                username: username.value,
-                email: email.value,
-                password: password.value,
-                conf_password: conf_password.value
-            })
+        if (allOk === true) {
+            // dataUserArray.push({
+            //     username: username.value,
+            //     email: email.value,
+            //     password: password.value,
+            //     conf_password: conf_password.value
+            // })
 
             circleProfile.style.backgroundColor = 'black';
             formProfile.style.display = 'none';
-            
+
+            shippingFormDiv.style.display = 'flex';
         }
     }
-
-
 
     );
 
@@ -574,12 +572,268 @@ function clearFormProfile() {
         password.value = '';
         conf_password.value = '';
 
-        dataUserArray = [];
+        // dataUserArray = [];
 
     })
 }
 
 clearFormProfile();
 
+//Limpiar formulario del perfil
+
+//Recibir datos del formulario de direccion
+
+function getUserAddressData() {
+
+    let allOk = true;
+
+    const nextStep = document.querySelector('#next_step_shipping');
+    const formShippingDiv = document.querySelector('#shipping_form_div');
+
+    nextStep.addEventListener('click', (event) => {
+
+        event.preventDefault();
+
+        const firstName = document.querySelector('#first_name');
+        const lastName = document.querySelector('#last_name');
+        const birthDay = document.querySelector('#birthday');
+        const addressOne = document.querySelector('#address_one');
+        const addressTwo = document.querySelector('#address_two');
+        const postalCode = document.querySelector('#postal_code');
+        const country = document.querySelector('#country');
+        const countryCode = document.querySelector('#country_code');
+        const telephone = document.querySelector('#telephone_input');
+
+        // regularAddress.checked
+
+        if (firstName.value === '' || lastName.value === '' || birthDay.value === '' || addressOne.value === '' || postalCode.value === '' || country.value === '' ||  telephone.value === '') {
+
+            firstName.style.borderColor = 'red';
+            lastName.style.borderColor = 'red';
+            birthDay.style.borderColor = 'red';
+            addressOne.style.borderColor = 'red';
+            addressTwo.style.borderColor = 'red';
+            postalCode.style.borderColor = 'red';
+            country.style.borderColor = 'red';
+            countryCode.style.borderColor = 'red';
+            telephone.style.borderColor = 'red';
+
+
+            const alertSpan = document.createElement('span');
+            alertSpan.innerHTML = '<p>Todos los campos son obligatorios</p>';
+            alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+            formShippingDiv.append(alertSpan);
+
+            setTimeout(() => {
+                formShippingDiv.removeChild(alertSpan);
+                firstName.style.borderColor = 'black';
+                lastName.style.borderColor = 'black';
+                birthDay.style.borderColor = 'black';
+                addressOne.style.borderColor = 'black';
+                addressTwo.style.borderColor = 'black';
+                postalCode.style.borderColor = 'black';
+                country.style.borderColor = 'black';
+                countryCode.style.borderColor = 'black';
+                telephone.style.borderColor = 'black';
+            }, 3000);
+
+            allOk = false;
+        } else {
+
+            if (firstName.value.lenght > 20) {
+
+                firstName.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>El nombre no puede tener mas de 20 caracteres</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formShippingDiv.append(alertSpan);
+
+                setTimeout(() => {
+                    formShippingDiv.removeChild(alertSpan);
+                    firstName.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            } else {
+                allOk = true;
+            }
+
+            if (lastName.value.lenght > 20) {
+
+                lastName.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>El apellido no puede tener mas de 20 caracteres</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formShippingDiv.append(alertSpan);
+
+                setTimeout(() => {
+                    formShippingDiv.removeChild(alertSpan);
+                    lastName.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            } else {
+                allOk = true;
+            }
+
+            if (addressOne.value.lenght > 50) {
+
+                addressOne.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>La dirección no puede tener mas de 50 caracteres</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formShippingDiv.append(alertSpan);
+
+                setTimeout(() => {
+                    formShippingDiv.removeChild(alertSpan);
+                    addressOne.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            } else {
+                allOk = true;
+            }
+
+            if (addressTwo.value.lenght > 50) {
+
+                addressTwo.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>La dirección no puede tener mas de 50 caracteres</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formShippingDiv.append(alertSpan);
+
+                setTimeout(() => {
+                    formShippingDiv.removeChild(alertSpan);
+                    addressTwo.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            } else {
+                allOk = true;
+            }
+
+            if (postalCode.value.lenght > 5) {
+
+                postalCode.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>El codigo postal no puede tener mas de 5 caracteres</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formShippingDiv.append(alertSpan);
+
+                setTimeout(() => {
+                    formShippingDiv.removeChild(alertSpan);
+                    postalCode.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            }else if(!isNaN(postalCode.value)){
+                
+                postalCode.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>El codigo postal debe ser un numero</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formShippingDiv.append(alertSpan);
+
+                setTimeout(() => {
+                    formShippingDiv.removeChild(alertSpan);
+                    postalCode.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            } else {
+                allOk = true;
+            }
+
+            if(telephone.value.lenght > 9 && !isNaN(telephone.value)){
+
+                telephone.style.borderColor = 'red';
+
+                const alertSpan = document.createElement('span');
+                alertSpan.innerHTML = '<p>Algo no está bien en tu número telefonico</p>';
+                alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
+
+                formShippingDiv.append(alertSpan);
+
+                setTimeout(() => {
+                    formShippingDiv.removeChild(alertSpan);
+                    telephone.style.borderColor = 'black';
+                }, 3000);
+
+                allOk = false;
+            }else{
+                allOk = true;
+            }
+
+        }
+
+        if (allOk) {
+            formShippingDiv.style.display = 'none';
+            document.querySelector('.address').style.backgroundColor = 'black';
+            document.querySelector('#shipping').style.display = 'flex';
+        }
+
+    })
+
+}
+
+getUserAddressData();
+
+
+function clearFormAddress() {
+
+    const clearButton = document.querySelector('#clear_form_shipping');
+
+    clearButton.addEventListener('click', (event) => {
+
+        event.preventDefault();
+
+        document.querySelector('#first_name').value = '';
+        document.querySelector('#last_name').value = '';
+        document.querySelector('#birthday').value = '';
+        document.querySelector('#address_one').value = '';
+        document.querySelector('#address_two').value = '';
+        document.querySelector('#postal_code').value = '';
+        document.querySelector('#country').value = '';
+        document.querySelector('#country_code').value = '';
+        document.querySelector('#telephone_input').value = '';
+
+    })
+}
+
+clearFormAddress();
+
+
+
+//Recibir datos del formulario de direccion
+function changeCountryCode() {
+
+
+    const countryCode = document.querySelector('#country_code');
+    const country = document.querySelector('#country');
+
+    country.addEventListener('click', () => {
+
+        if(country.value === 'ESP' || country.value === 'AND' || country.value === 'FRA' || country.value === 'DEU' || country.value === 'GRC'){
+            countryCode.value = country.value;
+        }
+        
+    })
+    
+}
+
+changeCountryCode();
 
 

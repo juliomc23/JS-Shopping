@@ -209,53 +209,60 @@
 
         <div id="shipping_form_div">
             <h1 class="profile_title">Profile</h1>
-            <form class="form" action="">
-                <label for="" class="form_label">First Name</label>
-                <input maxlength="20" type="text" class="form_input" required>
+            <form class="form_shipping" action="">
+                <label for="" class="form_label">First Name *</label>
+                <input maxlength="20" type="text" class="form_input" id="first_name" required>
 
-                <label for="" class="form_label">Last Name</label>
-                <input maxlength="20" type="text" class="form_input" required>
+                <label for="" class="form_label">Last Name *</label>
+                <input maxlength="20" type="text" class="form_input" id="last_name" required>
 
-                <label for="" class="form_label_fixed">Birthday</label>
-                <input type="date" class="form_input" required>
+                <label for="" class="form_label_fixed">Birthday *</label>
+                <input type="date" class="form_input" id="birthday" required>
 
-                <label for="" class="form_label">Address 1</label>
-                <input maxlength="50" type="text" class="form_input" required>
+                <label for="" class="form_label">Address 1 *</label>
+                <input maxlength="50" type="text" class="form_input" id="address_one" required>
 
-                <label for="" class="form_label">Address 2</label>
-                <input maxlength="50" type="text" class="form_input">
+                <label for="" class="form_label">Address 2 *</label>
+                <input maxlength="50" type="text" class="form_input" id="address_two">
 
-                <label for="" class="form_label">Postal Code</label>
-                <input maxlength="5" type="number" class="form_input" required>
+                <label for="" class="form_label">Postal Code *</label>
+                <input maxlength="5" type="text" class="form_input" id="postal_code" required>
 
-                <label for="" class="form_label_fixed">Country</label>
+                <label for="" class="form_label_fixed">Country *</label>
                 <select id="country" class="form_input" required>
-                    <option value="select" selected style="font-style: italic;">Select a country</option>
-                    <option value="andorra">Andorra</option>
-                    <option value="españa">España</option>
-                    <option value="francia">Francia</option>
-                    <option value="alemania">Alemania</option>
-                    <option value="grecia">Grecia</option>
+                    <option value="" selected style="font-style: italic;">Select a country</option>
+                    <option value="AND">Andorra</option>
+                    <option value="ESP">España</option>
+                    <option value="FRA">Francia</option>
+                    <option value="DEU">Alemania</option>
+                    <option value="GRC">Grecia</option>
                 </select>
 
-                <label for="" class="form_label_phone">Phone</label>
+                <label for="" class="form_label_phone">Phone* </label>
                 <div class="phone">
-                    <select name="countryCode" id="countryCode">
-                        <option value="and">Code</option>
-                        <option value="and">AND</option>
-                        <option value="esp">ESP</option>
-                        <option value="fra">FRA</option>
-                        <option value="deu">DEU</option>
-                        <option value="grc">GRC</option>
+                    <select name="countryCode" id="country_code">
+                        <option value="">Code</option>
+                        <option>AND</option>
+                        <option>ESP</option>
+                        <option>FRA</option>
+                        <option>DEU</option>
+                        <option>GRC</option>
                     </select>
+
+                    <input type="tel" class="input_tel" id="telephone_input" required>
                 </div>
-                <input type="tel" class="form_input" pattern="[0-9]{9}" required>
+                
+                <div class="regular_address_div">
+                    <label for="" style="margin-top: 10px;">This is my regular address</label>
+                    <input maxlength="" type="checkbox" class="checkbox" id="regular_address" style="width: 10%;">
+                </div>
+                
 
-                <label for="">This is my regular address</label>
-                <input maxlength="" type="checkbox" class="checkbox">
-
-
-                <input maxlength="" type="submit" class="form_submit">
+                <div id="submit_div_shipping">
+                    <input type="submit" value="Clear form" id="clear_form_shipping" />
+                    <input maxlength="" type="submit" class="form_submit" id="next_step_shipping" value="Next">
+                </div>
+                
 
             </form>
 
