@@ -90,7 +90,7 @@
         <!--Multiple clothes-->
 
         <div id="div_clothes">
-            <h1>Our clothes</h1>
+            <h1 class="clothes_title">Our clothes</h1>
             <div class="clothes_container">
                 <!--Aquí se creará un articulo para cada ropa-->
 
@@ -288,12 +288,11 @@
 
             <div id="shipping">
                 <h1 class="shipping_title">Shipping</h1>
-    
-                <div id="shipping_type">
+                <div id="shipping_type"> 
                     <h3>Shipping type</h3>
                     <div class="radio-buttons-div">
                         <input type="radio" id="free" name="shipping" value="free">
-                        <label for="free">Free Shipment(72h)</label>
+                        <label for="free">Free Shipment (72h)</label>
                     </div>
                     <div class="radio-buttons-div">
                         <input type="radio" id="extra" name="shipping" value="extra">
@@ -303,6 +302,11 @@
                         <input type="radio" id="premium" name="shipping" value="premium">
                         <label for="premium">Premium (24h) <strong>9,99€</strong></label>
                     </div>
+                </div>
+
+                <div id="arrive_date_div">
+                    <h3>Arrive date</h3>
+                    <!--Aquí debajo irá la fecha de llegada, sacada de JS-->
                 </div>
                 
                 <div class="checkbox_gift">
@@ -317,8 +321,8 @@
                 <input type="file" id="gift-image" name="filename">
 
                 <div id="form_div_buttons">
-                    <input type="submit" value="Clear form" id="clear_form" />
-                    <input type="submit" value="Next" id="next_step" />
+                    <input type="submit" value="Clear form" id="clear_form" disabled/>
+                    <input type="submit" value="Next" id="end_shipping" />
                 </div>
             </div>
             

@@ -1,3 +1,4 @@
+
 const array_products = [
     {
         id: 1,
@@ -54,7 +55,6 @@ const array_products = [
         stock: 10
     },
 ]
-
 let cart = [];
 
 
@@ -208,8 +208,12 @@ function showCart() {
         if (cart.length >= 1) {
             const productsCartDiv = document.querySelector('#products_cart_div');
             const shoppingCartDiv = document.querySelector('#shopping_cart_div');
+            const divClothes = document.querySelector('#div_clothes');
+            const divProgressBar = document.querySelector('#div_progress_bar');
 
-            shoppingCartDiv.style.cssText = "border-top: 1px solid rgb(216, 216, 216); border-bottom: 1px solid rgb(216, 216, 216);";
+            shoppingCartDiv.style.display= "flex";
+            divClothes.style.display = "none";
+            divProgressBar.style.display = "none"
 
             if (productsCartDiv.hasChildNodes() === true) {
 
@@ -307,9 +311,13 @@ function showTotalShop() {
     // el primero es el "total" y el segundo es el numero que va recorriendo
     // tambien tiene que recibir el 0 ese para que sume ese numero, si no le ponemos nada no suma nada
 
-    totalPrice.innerHTML = `${cart.reduce((acum, num_actual) => {
+    const shopPrice = cart.reduce((acum, num_actual) => {
+
         return acum + num_actual.price;
-    }, 0)}€`;
+
+    }, 0);
+
+    totalPrice.innerHTML = `${priceShipping + shopPrice}€`;
 
     //Eliminamos los hijos del div para que no salgan duplicados
     while (totalShop.firstChild) {
@@ -334,10 +342,12 @@ function userInfo() {
         const divClothes = document.querySelector('#div_clothes');
         const divProfileForm = document.querySelector('#profile_form_div');
         const divProducts = document.querySelector('.div_products');
+        const shoppingCartDiv = document.querySelector('#shopping_cart_div');
 
         divClothes.style.cssText = 'display: none;';
         divProfileForm.style.cssText = 'display: flex;';
         divProducts.style.cssText = 'display: none;';
+        shoppingCartDiv.style.display = "none";
 
     })
 }
@@ -527,12 +537,12 @@ function getUserData() {
         }
 
         if (allOk === true) {
-            // dataUserArray.push({
-            //     username: username.value,
-            //     email: email.value,
-            //     password: password.value,
-            //     conf_password: conf_password.value
-            // })
+            dataUserArray.push({
+                username: username.value,
+                email: email.value,
+                password: password.value,
+                conf_password: conf_password.value
+            })
 
             circleProfile.style.backgroundColor = 'black';
             formProfile.style.display = 'none';
@@ -586,6 +596,7 @@ clearFormProfile();
 function getUserAddressData() {
 
     let allOk = true;
+    let userDataArray = [];
 
     const nextStep = document.querySelector('#next_step_shipping');
     const formShippingDiv = document.querySelector('#shipping_form_div');
@@ -780,6 +791,17 @@ function getUserAddressData() {
         }
 
         if (allOk) {
+            userDataArray.push({
+                firstName: firstName.value,
+                lastName: lastName.value,
+                addressOne: addressOne.value,
+                addressTwo: addressTwo.value,
+                postalCode: postalCode.value,
+                country: country.value,
+                countryCode: countryCode.value,
+                telephone: telephone.value,
+            })
+
             formShippingDiv.style.display = 'none';
             document.querySelector('.address').style.backgroundColor = 'black';
             document.querySelector('#shipping').style.display = 'flex';
@@ -836,4 +858,81 @@ function changeCountryCode() {
 
 changeCountryCode();
 
+let priceShipping = 0;
 
+const arriveOrder = () =>{
+
+    const radioButtonFree = document.querySelector('#free');
+    const radioButtonExtra = document.querySelector('#extra');
+    const radioButtonPremium = document.querySelector('#premium');
+
+    const arriveDateDiv = document.querySelector('#arrive_date_div');
+    const spanArriveDate = document.createElement('span');
+    
+    const today = new Date();
+    
+    radioButtonFree.addEventListener('click', () => {
+        if(radioButtonFree.checked){
+            
+            spanArriveDate.innerHTML = `<p> <strong>${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getDate()} / 
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getMonth()} / 
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getFullYear()}</strong></p>`;
+
+            arriveDateDiv.append(spanArriveDate);
+        }
+
+    });
+
+    radioButtonExtra.addEventListener('click', () => {
+        if(radioButtonExtra.checked){
+            
+            spanArriveDate.innerHTML = `<p> <strong>${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getDate()} / 
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getMonth()} / 
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getFullYear()}</strong></p>`;
+
+            arriveDateDiv.append(spanArriveDate);
+
+            
+            priceShipping = 4.99;
+            
+        }
+    });
+
+    radioButtonPremium.addEventListener('click', () => {
+        if(radioButtonPremium.checked){
+            
+            spanArriveDate.innerHTML = `<p> <strong>${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getDate()} / 
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getMonth()} / 
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getFullYear()}</strong></p>`;
+
+            arriveDateDiv.append(spanArriveDate);
+
+            
+            priceShipping = 9.99;
+            
+        }
+
+        
+    });
+
+}
+
+arriveOrder();
+
+function endShopping(){
+
+    const endShipping =  document.querySelector('#end_shipping');
+    const shippingDiv = document.querySelector('#shipping');
+    const divClothes = document.querySelector('#div_clothes');
+    const circleShipping = document.querySelector('.shipping');
+
+    endShipping.addEventListener('click', ()=>{
+
+        shippingDiv.style.display = "none";
+        divClothes.style.display = "flex";
+        circleShipping.style.backgroundColor = "black";
+        
+    })
+}
+
+endShopping();
