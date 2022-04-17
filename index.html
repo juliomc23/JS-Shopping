@@ -40,7 +40,7 @@
 
             <div id="profile_div">
                 <div class="user">
-                    <img src="./src/assets/img/290120_account_avatar_man_profile_user_icon.png"/>
+                    <img src="./src/assets/img/290120_account_avatar_man_profile_user_icon.png" />
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
                     <img src="./src/assets/img/4544843_shop_business_delivery_trolley_comerce_icon.png">
                 </div>
                 <div class="notification">
-                    
+
                 </div>
             </div>
         </header>
@@ -94,7 +94,7 @@
             <div class="clothes_container">
                 <!--Aquí se creará un articulo para cada ropa-->
 
-                
+
             </div>
         </div>
 
@@ -109,7 +109,7 @@
 
             <div class="productDescr">
                 <div class="info">
-                <!--Info sacada de Array-->
+                    <!--Info sacada de Array-->
                 </div>
                 <p>Color:</p>
                 <div class="colors">
@@ -185,7 +185,7 @@
             <form class="form_profile">
 
                 <label for="username">Username *</label>
-                <input type="text" name="username" id="username" required/>
+                <input type="text" name="username" id="username" required />
 
                 <label for="email">Email *</label>
                 <input type="text" name="email" id="email" required />
@@ -251,135 +251,157 @@
 
                     <input type="tel" class="input_tel" id="telephone_input" required>
                 </div>
-                
+
                 <div class="regular_address_div">
                     <label for="" style="margin-top: 10px;">This is my regular address</label>
                     <input maxlength="" type="checkbox" class="checkbox" id="regular_address" style="width: 10%;">
                 </div>
-                
+
 
                 <div id="submit_div_shipping">
                     <input type="submit" value="Clear form" id="clear_form_shipping" />
                     <input maxlength="" type="submit" class="form_submit" id="next_step_shipping" value="Next">
                 </div>
-                
+
 
             </form>
 
         </div>
-            <!--Address-->
+        <!--Address-->
 
-            <!--Cart-->
+        <!--Cart-->
 
-                <div id="shopping_cart_div">
-                    <div id="products_cart_div">
-                        <!--Productos sacados con JS-->
-                    </div>
-
-                    <div id="total_div">
-                        <div id="total_info">
-                            
-                        </div>
-                    </div>
-                </div>
-            <!--Cart-->
-
-            <!--Shipping address-->
-
-            <div id="shipping">
-                <h1 class="shipping_title">Shipping</h1>
-                <div id="shipping_type"> 
-                    <h3>Shipping type</h3>
-                    <div class="radio-buttons-div">
-                        <input type="radio" id="free" name="shipping" value="free">
-                        <label for="free">Free Shipment (72h)</label>
-                    </div>
-                    <div class="radio-buttons-div">
-                        <input type="radio" id="extra" name="shipping" value="extra">
-                        <label for="extra">Extra shipment (48H) <strong>4,99€</strong></label>
-                    </div>
-                    <div class="radio-buttons-div">
-                        <input type="radio" id="premium" name="shipping" value="premium">
-                        <label for="premium">Premium (24h) <strong>9,99€</strong></label>
-                    </div>
-                </div>
-
-                <div id="arrive_date_div">
-                    <h3>Arrive date</h3>
-                    <!--Aquí debajo irá la fecha de llegada, sacada de JS-->
-                </div>
-                
-                <div class="checkbox_gift">
-                    <input type="checkbox" id="gift" onClick="Gifts()">
-                    <p id="gift" style="display:block">It's a gift?</p>
-                </div>
-
-                <p id="tit" style="display: none;">Gift message</p>
-
-                <textarea id="message_text" name="subject"></textarea>
-
-                <input type="file" id="gift-image" name="filename">
-
-                <div id="form_div_buttons">
-                    <input type="submit" value="Clear form" id="clear_form" disabled/>
-                    <input type="submit" value="Next" id="end_shipping" />
-                </div>
-            </div>
-            
-
-            <div id="time">
-
+        <div id="shopping_cart_div">
+            <div id="products_cart_div">
+                <!--Productos sacados con JS-->
             </div>
 
-            <!--Footer-->
-            <footer id="footer">
-                <div id="about_us_div">
-                    <h1>About us</h1>
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis iusto quia voluptatibus
-                        voluptate
-                        mollitia, minima maiores vero magnam nulla est architecto sapiente incidunt, et quidem harum
-                        perspiciatis earum culpa ducimus.</span>
+            <div id="total_div">
+                <div id="total_info">
+
                 </div>
+            </div>
 
-                <div class="divider"></div>
+            <div class="end_shop_div">
+                <button id="finishBuyButton">Finish</button>
+            </div>
+        </div>
+        <!--Cart-->
 
-                <div id="faqs_div">
-                    <h1>FAQs</h1>
-                    <ul class="faqs_list">
-                        <li>FAQ 1</li>
-                        <li>FAQ 2</li>
-                        <li>FAQ 3</li>
-                        <li>FAQ 4</li>
-                    </ul>
+        <!--Shipping address-->
+
+        <div id="shipping">
+            <h1 class="shipping_title">Shipping</h1>
+            <div id="shipping_type">
+                <h3>Shipping type</h3>
+                <div class="radio-buttons-div">
+                    <input type="radio" id="free" name="shipping" value="free">
+                    <label for="free">Free Shipment (72h)</label>
                 </div>
-
-                <div class="divider"></div>
-
-                <div id="location_div">
-                    <h1>Our shops</h1>
-                    <ul class="shops_list">
-                        <li>Shop 1</li>
-                        <li>Shop 2</li>
-                        <li>Shop 3</li>
-                        <li>Shop 4</li>
-                    </ul>
+                <div class="radio-buttons-div">
+                    <input type="radio" id="extra" name="shipping" value="extra">
+                    <label for="extra">Extra shipment (48H) <strong>4,99€</strong></label>
                 </div>
-
-                <div class="divider"></div>
-
-                <div id="social_network_div">
-                    <h1>Our social network</h1>
-                    <div id="network_img_div">
-                        <img src="./src/assets/img/104498_facebook_icon.png">
-                        <img src="./src/assets/img/104501_twitter_bird_icon.png">
-                        <img src="./src/assets/img/1161953_instagram_icon.png">
-                    </div>
+                <div class="radio-buttons-div">
+                    <input type="radio" id="premium" name="shipping" value="premium">
+                    <label for="premium">Premium (24h) <strong>9,99€</strong></label>
                 </div>
-            </footer>
-            <!--Footer-->
+            </div>
+
+            <div id="arrive_date_div">
+                <h3>Arrive date</h3>
+                <!--Aquí debajo irá la fecha de llegada, sacada de JS-->
+            </div>
+
+            <div class="checkbox_gift">
+                <input type="checkbox" id="gift" onClick="Gifts()">
+                <p id="gift" style="display:block">It's a gift?</p>
+            </div>
+
+            <p id="tit" style="display: none;">Gift message</p>
+
+            <textarea id="message_text" name="subject"></textarea>
+
+            <input type="file" id="gift-image" name="filename">
+
+            <div id="form_div_buttons">
+                <input type="submit" value="Clear form" id="clear_form" disabled />
+                <input type="submit" value="Next" id="end_shipping" />
+            </div>
+        </div>
+
+
+        <div id="time">
 
         </div>
-        <!--Container-->
+
+
+
+        <div class="end_Shipping_div">
+            <h1>Your order is received</h1>
+
+            <div class="info_shop_div">
+                <div class="info_order_div">
+                    <div class="user_info">
+                        <!--Info sacada de arrays-->
+                    </div>
+    
+                    <div class="product_info">
+                        <!--Info sacada de arrays-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <footer id="footer">
+            <div id="about_us_div">
+                <h1>About us</h1>
+                <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis iusto quia voluptatibus
+                    voluptate
+                    mollitia, minima maiores vero magnam nulla est architecto sapiente incidunt, et quidem harum
+                    perspiciatis earum culpa ducimus.</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <div id="faqs_div">
+                <h1>FAQs</h1>
+                <ul class="faqs_list">
+                    <li>FAQ 1</li>
+                    <li>FAQ 2</li>
+                    <li>FAQ 3</li>
+                    <li>FAQ 4</li>
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <div id="location_div">
+                <h1>Our shops</h1>
+                <ul class="shops_list">
+                    <li>Shop 1</li>
+                    <li>Shop 2</li>
+                    <li>Shop 3</li>
+                    <li>Shop 4</li>
+                </ul>
+            </div>
+
+            <div class="divider"></div>
+
+            <div id="social_network_div">
+                <h1>Our social network</h1>
+                <div id="network_img_div">
+                    <img src="./src/assets/img/104498_facebook_icon.png">
+                    <img src="./src/assets/img/104501_twitter_bird_icon.png">
+                    <img src="./src/assets/img/1161953_instagram_icon.png">
+                </div>
+            </div>
+        </footer>
+        <!--Footer-->
+
+    </div>
+    <!--Container-->
 
 </body>
 

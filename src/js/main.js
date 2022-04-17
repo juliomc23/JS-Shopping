@@ -210,10 +210,12 @@ function showCart() {
             const shoppingCartDiv = document.querySelector('#shopping_cart_div');
             const divClothes = document.querySelector('#div_clothes');
             const divProgressBar = document.querySelector('#div_progress_bar');
+            const divProducts = document.querySelector('.div_products');
 
-            shoppingCartDiv.style.display= "flex";
+            shoppingCartDiv.style.display = "flex";
             divClothes.style.display = "none";
-            divProgressBar.style.display = "none"
+            divProgressBar.style.display = "none";
+            divProducts.style.display = "none";
 
             if (productsCartDiv.hasChildNodes() === true) {
 
@@ -359,9 +361,10 @@ userInfo();
 
 //Obtener datos del usuario
 
+let userInfoArray = [];
+
 function getUserData() {
 
-    let dataUserArray = [];
     let allOk = true;
 
     const sendValuesButton = document.querySelector('#next_step');
@@ -537,7 +540,7 @@ function getUserData() {
         }
 
         if (allOk === true) {
-            dataUserArray.push({
+            userInfoArray.push({
                 username: username.value,
                 email: email.value,
                 password: password.value,
@@ -592,11 +595,11 @@ clearFormProfile();
 //Limpiar formulario del perfil
 
 //Recibir datos del formulario de direccion
+let addressInfoArray = [];
 
 function getUserAddressData() {
 
     let allOk = true;
-    let userDataArray = [];
 
     const nextStep = document.querySelector('#next_step_shipping');
     const formShippingDiv = document.querySelector('#shipping_form_div');
@@ -617,7 +620,7 @@ function getUserAddressData() {
 
         // regularAddress.checked
 
-        if (firstName.value === '' || lastName.value === '' || birthDay.value === '' || addressOne.value === '' || postalCode.value === '' || country.value === '' ||  telephone.value === '') {
+        if (firstName.value === '' || lastName.value === '' || birthDay.value === '' || addressOne.value === '' || postalCode.value === '' || country.value === '' || telephone.value === '') {
 
             firstName.style.borderColor = 'red';
             lastName.style.borderColor = 'red';
@@ -748,8 +751,8 @@ function getUserAddressData() {
                 }, 3000);
 
                 allOk = false;
-            }else if(!isNaN(postalCode.value)){
-                
+            } else if (!isNaN(postalCode.value)) {
+
                 postalCode.style.borderColor = 'red';
 
                 const alertSpan = document.createElement('span');
@@ -768,7 +771,7 @@ function getUserAddressData() {
                 allOk = true;
             }
 
-            if(telephone.value.lenght > 9 && !isNaN(telephone.value)){
+            if (telephone.value.lenght > 9 && !isNaN(telephone.value)) {
 
                 telephone.style.borderColor = 'red';
 
@@ -784,14 +787,14 @@ function getUserAddressData() {
                 }, 3000);
 
                 allOk = false;
-            }else{
+            } else {
                 allOk = true;
             }
 
         }
 
         if (allOk) {
-            userDataArray.push({
+            addressInfoArray.push({
                 firstName: firstName.value,
                 lastName: lastName.value,
                 addressOne: addressOne.value,
@@ -848,19 +851,22 @@ function changeCountryCode() {
 
     country.addEventListener('click', () => {
 
-        if(country.value === 'ESP' || country.value === 'AND' || country.value === 'FRA' || country.value === 'DEU' || country.value === 'GRC'){
+        if (country.value === 'ESP' || country.value === 'AND' || country.value === 'FRA' || country.value === 'DEU' || country.value === 'GRC') {
             countryCode.value = country.value;
         }
-        
+
     })
-    
+
 }
 
 changeCountryCode();
 
-let priceShipping = 0;
 
-const arriveOrder = () =>{
+
+let priceShipping = 0;
+let shippingChoiceArray = [];
+
+const arriveOrder = () => {
 
     const radioButtonFree = document.querySelector('#free');
     const radioButtonExtra = document.querySelector('#extra');
@@ -868,71 +874,130 @@ const arriveOrder = () =>{
 
     const arriveDateDiv = document.querySelector('#arrive_date_div');
     const spanArriveDate = document.createElement('span');
-    
+
     const today = new Date();
-    
+
     radioButtonFree.addEventListener('click', () => {
-        if(radioButtonFree.checked){
-            
+        if (radioButtonFree.checked) {
+
             spanArriveDate.innerHTML = `<p> <strong>${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getDate()} / 
             ${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getMonth()} / 
             ${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getFullYear()}</strong></p>`;
 
             arriveDateDiv.append(spanArriveDate);
+
+            shippingChoiceArray.push({
+                priceShipping: "free"
+            })
         }
 
     });
 
     radioButtonExtra.addEventListener('click', () => {
-        if(radioButtonExtra.checked){
-            
+        if (radioButtonExtra.checked) {
+
             spanArriveDate.innerHTML = `<p> <strong>${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getDate()} / 
             ${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getMonth()} / 
             ${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getFullYear()}</strong></p>`;
 
             arriveDateDiv.append(spanArriveDate);
 
-            
+
             priceShipping = 4.99;
-            
+
+            shippingChoiceArray.push({
+                priceShipping: 4.99
+            })
+
         }
     });
 
     radioButtonPremium.addEventListener('click', () => {
-        if(radioButtonPremium.checked){
-            
+        if (radioButtonPremium.checked) {
+
             spanArriveDate.innerHTML = `<p> <strong>${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getDate()} / 
             ${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getMonth()} / 
             ${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getFullYear()}</strong></p>`;
 
             arriveDateDiv.append(spanArriveDate);
 
-            
+
             priceShipping = 9.99;
-            
+
+            shippingChoiceArray.push({
+                priceShipping: 9.99
+            })
+
         }
 
-        
+
     });
 
 }
 
 arriveOrder();
 
-function endShopping(){
+function endShopping() {
 
-    const endShipping =  document.querySelector('#end_shipping');
+    const endShipping = document.querySelector('#end_shipping');
     const shippingDiv = document.querySelector('#shipping');
     const divClothes = document.querySelector('#div_clothes');
     const circleShipping = document.querySelector('.shipping');
 
-    endShipping.addEventListener('click', ()=>{
+    endShipping.addEventListener('click', () => {
 
         shippingDiv.style.display = "none";
         divClothes.style.display = "flex";
         circleShipping.style.backgroundColor = "black";
-        
+
     })
 }
 
 endShopping();
+
+function endCart() {
+
+    const finishBuyButton = document.querySelector('#finishBuyButton');
+
+    finishBuyButton.addEventListener('click', () => {
+
+        console.log(addressInfoArray, userInfoArray, shippingChoiceArray, cart);
+
+        if (addressInfoArray.length === 0 || userInfoArray === 0 || shippingChoiceArray === 0) {
+            alert('No has completado los formularios');
+        } else {
+            
+            const userInfo = document.querySelector('.user_info');
+            const CompleteName = document.createElement('p');
+            const CompleteAddress = document.createElement('p');
+            const Telephone = document.createElement('p');
+    
+            CompleteName.innerHTML = `Nombre: ${addressInfoArray[0].firstName} ${addressInfoArray[0].lastName}`;
+            CompleteAddress.innerHTML = `Direccion: ${addressInfoArray[0].country} / ${addressInfoArray[0].addressOne} / ${addressInfoArray[0].postalCode}`;
+            Telephone.innerHTML = `Telefono: ${addressInfoArray[0].telephone}`;
+    
+            userInfo.appendChild(CompleteName);
+            userInfo.appendChild(CompleteAddress);
+            userInfo.appendChild(Telephone);
+    
+            const productInfo = document.querySelector('.product_info');
+            const productPrice = document.createElement('p');
+            const shippingPrice = document.createElement('p');
+
+
+            productPrice.innerHTML = `Precio productos: ${cart.reduce((acum, product) =>{
+                return acum + product.price
+            }, 0)}`;
+
+            const shippingChoice = shippingChoiceArray.pop()
+
+            shippingPrice.innerHTML = `Gastos de envío: ${shippingChoice.priceShipping}`;
+    
+            productInfo.appendChild(productPrice);
+            productInfo.appendChild(shippingPrice);
+
+        }
+    })
+}
+
+endCart();

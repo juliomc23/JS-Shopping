@@ -479,6 +479,7 @@
     padding-left: 10px;
 }
 
+
 #total_div{
     width: 20%;
     display: flex;
@@ -513,6 +514,30 @@
 
 #total_info p:nth-child(2){
     font-size: 35px;
+}
+
+.end_shop_div{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-content: flex-start;
+}
+
+.end_shop_div button{
+    width: 75px;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid black;
+    background-color: #e4e4e4;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 300ms;
+}
+
+.end_shop_div button:hover{
+    border: 1px solid rgb(158, 158, 158);
+    background-color: #3d3d3d;
+    color: white;
 }
 
 
@@ -754,7 +779,7 @@ img~a {
     align-items: center;
     margin-bottom: 20px;
     padding-left: 20px;
-    display: none;
+    display: flex;
 }
 
 #shipping_type{
@@ -780,4 +805,40 @@ img~a {
     width: 20%;
     height: 150px;
     margin-bottom: 10px;
+}
+
+.end_Shipping_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 100%;
+}
+
+.info_shop_div{
+    width: 100%;
+    border: 1px solid yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info_order_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    width: 100%;
+}
+
+.user_info{
+    border: 1px solid blue;
+    width: 100%;
+}
+
+.product_info{
+    border: 1px solid pink;
+    width: 100%;
 }
