@@ -75,6 +75,8 @@ function Gifts() {
     }
 }
 
+notification();
+
 //Mostrar array de productos
 
 function muestraArrayProductos() {
@@ -958,14 +960,20 @@ endShopping();
 function endCart() {
 
     const finishBuyButton = document.querySelector('#finishBuyButton');
+    const endShippingDiv = document.querySelector('.end_Shipping_div');
+    const shoppingCartDiv = document.querySelector('#shopping_cart_div');
+    const footerDiv = document.querySelector('#footer');
 
     finishBuyButton.addEventListener('click', () => {
 
-        console.log(addressInfoArray, userInfoArray, shippingChoiceArray, cart);
-
+        
         if (addressInfoArray.length === 0 || userInfoArray === 0 || shippingChoiceArray === 0) {
             alert('No has completado los formularios');
         } else {
+
+            shoppingCartDiv.style.display = "none";
+            footerDiv.style.display = "none";
+            endShippingDiv.style.display = "flex";
             
             const userInfo = document.querySelector('.user_info');
             const CompleteName = document.createElement('p');
@@ -973,7 +981,7 @@ function endCart() {
             const Telephone = document.createElement('p');
     
             CompleteName.innerHTML = `Nombre: ${addressInfoArray[0].firstName} ${addressInfoArray[0].lastName}`;
-            CompleteAddress.innerHTML = `Direccion: ${addressInfoArray[0].country} / ${addressInfoArray[0].addressOne} / ${addressInfoArray[0].postalCode}`;
+            CompleteAddress.innerHTML = `Direccion envío: ${addressInfoArray[0].country} / ${addressInfoArray[0].addressOne} / ${addressInfoArray[0].postalCode}`;
             Telephone.innerHTML = `Telefono: ${addressInfoArray[0].telephone}`;
     
             userInfo.appendChild(CompleteName);
@@ -985,7 +993,7 @@ function endCart() {
             const shippingPrice = document.createElement('p');
 
 
-            productPrice.innerHTML = `Precio productos: ${cart.reduce((acum, product) =>{
+            productPrice.innerHTML = `Precio productos comprados: ${cart.reduce((acum, product) =>{
                 return acum + product.price
             }, 0)}`;
 
@@ -996,6 +1004,8 @@ function endCart() {
             productInfo.appendChild(productPrice);
             productInfo.appendChild(shippingPrice);
 
+            cart = [];
+            notification();
         }
     })
 }
