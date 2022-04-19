@@ -857,7 +857,7 @@ clearFormAddress();
 
 
 
-//Recibir datos del formulario de direccion
+//Cambiar el selector de paises
 function changeCountryCode() {
 
 
