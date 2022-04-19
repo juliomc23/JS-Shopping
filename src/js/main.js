@@ -1,4 +1,4 @@
-
+//Array de objetos del que sacaremos los productos
 const array_products = [
     {
         id: 1,
@@ -58,6 +58,7 @@ const array_products = [
 let cart = [];
 
 
+//funcion para mostrar el checkbox del gift
 function Gifts() {
     // Get the checkbox
     var checkBox = document.getElementById("gift");
@@ -75,9 +76,11 @@ function Gifts() {
     }
 }
 
+
+//Llamo a la funcion para que muestre el numero de productos que hay en el carrito
 notification();
 
-//Mostrar array de productos
+//Muestra todos los productos que hay en el array de objetos
 
 function muestraArrayProductos() {
 
@@ -108,7 +111,7 @@ muestraArrayProductos();
 
 //Mostrar array de productos
 
-//Clicks en botones viewProduct
+//Clicks en botones viewProduct para ver un unico producto
 
 function viewProduct() {
     const divClothes = document.querySelector('#div_clothes');
@@ -167,7 +170,7 @@ viewProduct();
 
 //Clicks en botones viewProduct
 
-//Añadir al carrito
+//Funcion para añadir al carrito
 
 function addToCart() {
 
@@ -189,7 +192,7 @@ function addToCart() {
                 }
             })
 
-            //Llamamos a la funcion de notification para que cada vez que hagamos click en el boton de añadir al carrito, se muestre una notificacion
+            //Llamamos a la funcion de notification para que cada vez que hagamos click en el boton de añadir al carrito, se muestre cuantos productos hay en el carrito
             notification();
         })
     })
@@ -199,7 +202,7 @@ addToCart();
 
 //Añadir al carrito
 
-//Mostrar el carrito
+//Mostrar el carrito en la pagina
 
 function showCart() {
 
@@ -271,7 +274,7 @@ function showCart() {
         } else {
             alert('No hay productos en el carrito');
         }
-
+        //Llamamos a la funcion para que nos muestre el precio total de los productos
         showTotalShop();
     })
 }
@@ -312,12 +315,12 @@ function showTotalShop() {
     totalText.innerHTML = 'Total: ';
 
     //Calculamos el total de la compra con el metodo reduce, tiene que recibir una funcion y 4 parametros, en este caso solo se usan 2
-    // el primero es el "total" y el segundo es el numero que va recorriendo
+    // el primero es el "total" y el segundo es el producto que va recorriendo
     // tambien tiene que recibir el 0 ese para que sume ese numero, si no le ponemos nada no suma nada
 
-    const shopPrice = cart.reduce((acum, num_actual) => {
+    const shopPrice = cart.reduce((acum, product) => {
 
-        return acum + num_actual.price;
+        return acum + product.price;
 
     }, 0);
 
@@ -541,7 +544,8 @@ function getUserData() {
 
         }
 
-        if (allOk === true) {
+        //Si no hay errores en la validacion se pasará a la siguiente "pantalla"
+        if (allOk) {
             userInfoArray.push({
                 username: username.value,
                 email: email.value,
@@ -620,8 +624,8 @@ function getUserAddressData() {
         const countryCode = document.querySelector('#country_code');
         const telephone = document.querySelector('#telephone_input');
 
-        // regularAddress.checked
-
+        
+        //Comprobar que los campos no están vacios
         if (firstName.value === '' || lastName.value === '' || birthDay.value === '' || addressOne.value === '' || postalCode.value === '' || country.value === '' || telephone.value === '') {
 
             firstName.style.borderColor = 'red';
@@ -657,6 +661,7 @@ function getUserAddressData() {
             allOk = false;
         } else {
 
+            //Caracteres del nombre > 20
             if (firstName.value.lenght > 20) {
 
                 firstName.style.borderColor = 'red';
@@ -677,6 +682,7 @@ function getUserAddressData() {
                 allOk = true;
             }
 
+            //Caracteres del apellido > 20
             if (lastName.value.lenght > 20) {
 
                 lastName.style.borderColor = 'red';
@@ -697,6 +703,7 @@ function getUserAddressData() {
                 allOk = true;
             }
 
+            //Caracteres de la direccion > 50
             if (addressOne.value.lenght > 50) {
 
                 addressOne.style.borderColor = 'red';
@@ -717,6 +724,7 @@ function getUserAddressData() {
                 allOk = true;
             }
 
+            //Caracteres de la direccion > 50
             if (addressTwo.value.lenght > 50) {
 
                 addressTwo.style.borderColor = 'red';
@@ -737,6 +745,7 @@ function getUserAddressData() {
                 allOk = true;
             }
 
+            //Caracteres del codigo postal > 5
             if (postalCode.value.lenght > 5) {
 
                 postalCode.style.borderColor = 'red';
@@ -753,6 +762,8 @@ function getUserAddressData() {
                 }, 3000);
 
                 allOk = false;
+
+                //Comprobar que el cp sean numeros
             } else if (!isNaN(postalCode.value)) {
 
                 postalCode.style.borderColor = 'red';
@@ -773,12 +784,13 @@ function getUserAddressData() {
                 allOk = true;
             }
 
-            if (telephone.value.lenght > 9 && !isNaN(telephone.value)) {
+            //Comprobar longitud de caracteres y comprobar que sea un numero
+            if (telephone.value.lenght > 9 && !isNaN(telephone.value) || telephone.value.lenght < 9 && !isNaN(telephone.value)) {
 
                 telephone.style.borderColor = 'red';
 
                 const alertSpan = document.createElement('span');
-                alertSpan.innerHTML = '<p>Algo no está bien en tu número telefonico</p>';
+                alertSpan.innerHTML = '<p>Algo no está bien en el formato utilizado</p>';
                 alertSpan.style.cssText = 'color: red; font-size: 1.2rem;';
 
                 formShippingDiv.append(alertSpan);
@@ -795,6 +807,7 @@ function getUserAddressData() {
 
         }
 
+        //pasar a la siguiente pagina si todo está bien
         if (allOk) {
             addressInfoArray.push({
                 firstName: firstName.value,
@@ -818,7 +831,7 @@ function getUserAddressData() {
 
 getUserAddressData();
 
-
+//limpiar formulario de la direccion
 function clearFormAddress() {
 
     const clearButton = document.querySelector('#clear_form_shipping');
@@ -864,7 +877,7 @@ function changeCountryCode() {
 changeCountryCode();
 
 
-
+//funcion para el envío de los productos
 let priceShipping = 0;
 let shippingChoiceArray = [];
 
@@ -882,9 +895,11 @@ const arriveOrder = () => {
     radioButtonFree.addEventListener('click', () => {
         if (radioButtonFree.checked) {
 
-            spanArriveDate.innerHTML = `<p> <strong>${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getDate()} / 
+            spanArriveDate.innerHTML = `<p> <strong>
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getDate()} / 
             ${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getMonth()} / 
-            ${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getFullYear()}</strong></p>`;
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 72)).getFullYear()}
+            </strong></p>`;
 
             arriveDateDiv.append(spanArriveDate);
 
@@ -898,9 +913,11 @@ const arriveOrder = () => {
     radioButtonExtra.addEventListener('click', () => {
         if (radioButtonExtra.checked) {
 
-            spanArriveDate.innerHTML = `<p> <strong>${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getDate()} / 
+            spanArriveDate.innerHTML = `<p> <strong>
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getDate()} / 
             ${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getMonth()} / 
-            ${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getFullYear()}</strong></p>`;
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 48)).getFullYear()}
+            </strong></p>`;
 
             arriveDateDiv.append(spanArriveDate);
 
@@ -917,9 +934,11 @@ const arriveOrder = () => {
     radioButtonPremium.addEventListener('click', () => {
         if (radioButtonPremium.checked) {
 
-            spanArriveDate.innerHTML = `<p> <strong>${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getDate()} / 
+            spanArriveDate.innerHTML = `<p> <strong>
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getDate()} / 
             ${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getMonth()} / 
-            ${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getFullYear()}</strong></p>`;
+            ${new Date(today.getTime() + (1000 * 60 * 60 * 24)).getFullYear()}
+            </strong></p>`;
 
             arriveDateDiv.append(spanArriveDate);
 
@@ -939,6 +958,7 @@ const arriveOrder = () => {
 
 arriveOrder();
 
+//pasar de pagina al rellenar los datos del shipping
 function endShopping() {
 
     const endShipping = document.querySelector('#end_shipping');
@@ -957,6 +977,8 @@ function endShopping() {
 
 endShopping();
 
+
+//finalizar compra
 function endCart() {
 
     const finishBuyButton = document.querySelector('#finishBuyButton');
